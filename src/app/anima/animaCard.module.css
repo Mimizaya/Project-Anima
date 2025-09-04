@@ -1,0 +1,59 @@
+.card {
+  position: relative;
+  width: 320px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background-color: var(--element);
+}
+.card h2 {
+  font-size: 1.8em;
+  font-weight: 900;
+}
+.number {
+  font-weight: 600;
+  color: var(--color-faint);
+}
+.imageContainer {
+  width: 100%;
+  height: 228px;
+  position: relative;
+}
+.types {
+  display: flex;
+  gap: 10px;
+}
+.types:last-of-type {
+  border-top: 2px solid var(--border);
+  border-radius: 2px;
+  margin-top: 15px;
+  padding-top: 5px;
+}
+.aspect,
+.trait {
+  height: 34px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: #fff;
+}
+.aspect img,
+.trait img {
+  margin-right: 5px;
+}
+
+.height,
+.energy {
+  width: 50%;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+.teal {
+  color: var(--accent);
+  font-weight: 900;
+}
