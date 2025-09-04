@@ -21,24 +21,26 @@
 }
 .search input {
   height: 40px;
-  padding: 10px 10px 10px 36px;
+  display: flex;
+  align-items: center;
+  padding-left: 36px;
   width: 320px;
   background-color: var(--background);
   outline: none;
   border: 2px solid var(--border);
-  color: var(--foreground);
+  color: var(--color-faint);
   border-radius: 10px;
   font-size: 1em;
   font-weight: 800;
   font-family: inherit;
 }
+.search input::placeholder {
+  color: var(--color-faint);
+}
 .search svg {
   position: absolute;
   top: 8px;
   left: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--color-faint);
 }
 .filters ul {
@@ -56,9 +58,8 @@
   cursor: pointer;
 }
 .button span {
-  display: none;
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
@@ -68,16 +69,20 @@
   border-radius: 10px;
   padding: 5px 10px;
   font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  pointer-events: none;
 }
 .button:hover span {
-  display: block;
+  opacity: 1;
 }
 .selected {
+  pointer-events: none;
   background-color: var(--accent);
   width: 80%;
   height: 5px;
   position: absolute;
-  z-index: 2;
+  z-index: -1;
   border-radius: 3px;
   bottom: -12px;
 }
