@@ -1,15 +1,11 @@
 import { createClient } from "@/utils/supabase/server";
-import AnimaPage from "@/anima/animaPage";
+import Anidex from "@/anidex/anidex";
 
 export default async function Page() {
   const supabase = await createClient();
 
   const { data: anima } = await supabase.from("anima").select();
 
-  if (!anima) return;
-  return (
-    <main>
-      <AnimaPage anima={anima} />
-    </main>
-  );
+  if (!anima) return null;
+  return <Anidex anima={anima} />;
 }

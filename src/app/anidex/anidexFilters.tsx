@@ -1,15 +1,17 @@
-import ToggleButton from "@/anima/toggleButton";
+import ToggleButton from "@/anidex/anidexFiltersToggleButton";
 import { aspects } from "@/data/aspects";
 import { traits } from "@/data/traits";
-import styles from "./animaFilters.module.css";
+import styles from "./anidexFilters.module.css";
 
-export default function AnimaFilters({
+export default function AnidexFilters({
+  query,
   setQuery,
   aspectSelection,
   handleAspectSelection,
   traitSelection,
   handleTraitSelection,
 }: {
+  query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   aspectSelection: string[];
   handleAspectSelection: (aspect: string) => void;
@@ -17,10 +19,11 @@ export default function AnimaFilters({
   handleTraitSelection: (trait: string) => void;
 }) {
   return (
-    <div className={styles.filters}>
+    <header className={styles.filters}>
       <div className={styles.search}>
         <input
           type="search"
+          value={query}
           placeholder="Search"
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -63,6 +66,6 @@ export default function AnimaFilters({
           />
         ))}
       </ul>
-    </div>
+    </header>
   );
 }

@@ -1,14 +1,14 @@
-import styles from "./animaCard.module.css";
+import styles from "./anidexCard.module.css";
 import Image from "next/image";
 import type { Anima } from "@/types/types";
 
-export default function AnimaCard({ anima }: { anima: Anima }) {
+export default function AnidexCard({ anima }: { anima: Anima }) {
   return (
     <div className={styles.card}>
       <h2>{anima.name}</h2>
       <p className={styles.number}>#{String(anima.id).padStart(3, "0")}</p>
 
-      <div className={styles.imageContainer}>
+      <div className={styles.animaImageContainer}>
         <Image
           src={`/anima/${anima.name}.png`}
           alt={`${anima.name} Icon`}

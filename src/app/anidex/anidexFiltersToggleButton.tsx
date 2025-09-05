@@ -1,7 +1,7 @@
 import Image from "next/image";
-import styles from "./animaFilters.module.css";
+import styles from "./anidexFilters.module.css";
 
-export default function ToggleButton({
+export default function AnidexFiltersToggleButton({
   value,
   imgCategory,
   selected,
@@ -21,7 +21,8 @@ export default function ToggleButton({
             : "unselected"
           : ""
       }`}
-      onMouseDown={() => toggleSelection(value)}
+      onClick={() => toggleSelection(value)}
+      onKeyDown={() => toggleSelection(value)}
     >
       <Image
         src={`/icons/${imgCategory}/${value}.png`}
