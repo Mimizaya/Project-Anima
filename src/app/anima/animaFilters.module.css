@@ -21,19 +21,19 @@
 }
 .search input {
   height: 40px;
-  width: 320px;
   display: flex;
   align-items: center;
   padding-left: 36px;
+  width: 320px;
   background-color: var(--background);
-  border: 2px solid var(--border);
-  border-radius: 10px;
   outline: none;
+  border: 2px solid var(--border);
+  color: var(--color-faint);
+  border-radius: 10px;
   font-size: 1em;
   font-weight: 800;
   font-family: inherit;
 }
-.search input,
 .search input::placeholder {
   color: var(--color-faint);
 }
