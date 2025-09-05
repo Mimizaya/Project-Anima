@@ -1,17 +1,20 @@
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import styles from "./animaFilters.module.css";
 
 export default function ToggleButton({
   value,
   imgCategory,
-  selected,
-  toggleSelection,
+  toggle,
 }: {
   value: string;
   imgCategory: string;
-  selected: string[];
-  toggleSelection: (value: string) => void;
+  toggle: (key: string, value: string) => void;
 }) {
+  const searchParams = useSearchParams();
+
+  const values = searchParams.get(imgCategory);
+  const selected = values?.split("&") ?? [];
   return (
     <li
       className={`${styles.button} ${value.toLowerCase()} ${
@@ -21,7 +24,7 @@ export default function ToggleButton({
             : "unselected"
           : ""
       }`}
-      onMouseDown={() => toggleSelection(value)}
+      onMouseDown={() => toggle(imgCategory, value)}
     >
       <Image
         src={`/icons/${imgCategory}/${value}.png`}

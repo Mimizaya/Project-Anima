@@ -1,8 +1,8 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #252121;
   --border: #ddd;
-  --element: #f1efe7;
+  --element: #f0ede0;
   --color-faint: #969384;
   --highlight: #36df36;
   --accent: #24c7b1;
@@ -12,8 +12,8 @@
   :root {
     --background: #1c1c1c;
     --foreground: #ededed;
-    --element: #242424;
-    --border: #333333;
+    --element: #272424;
+    --border: #383333;
     --color-faint: #777;
     --highlight: rgb(92, 235, 49);
   }

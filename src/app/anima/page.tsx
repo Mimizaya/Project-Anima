@@ -1,15 +1,21 @@
-import { createClient } from "@/utils/supabase/server";
-import AnimaPage from "@/anima/animaPage";
+import { Suspense } from "react";
+import AnimaFilters from "@/anima/animaFilters";
+import AnimaListWrapper from "@/anima/AnimaListWrapper";
+import AnimaListSkeleton from "@/anima/animaListSkeleton";
 
-export default async function Page() {
-  const supabase = await createClient();
-
-  const { data: anima } = await supabase.from("anima").select();
-
-  if (!anima) return;
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] };
+}) {
   return (
     <main>
-      <AnimaPage anima={anima} />
+      <Suspense>
+        <AnimaFilters />
+      </Suspense>
+      <Suspense fallback={<AnimaListSkeleton />}>
+        <AnimaListWrapper searchParams={searchParams} />
+      </Suspense>
     </main>
   );
 }

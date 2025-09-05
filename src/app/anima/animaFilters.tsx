@@ -1,26 +1,66 @@
+"use client";
+
 import ToggleButton from "@/anima/toggleButton";
 import { aspects } from "@/data/aspects";
 import { traits } from "@/data/traits";
 import styles from "./animaFilters.module.css";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import type { Aspect } from "@/data/aspects";
+import type { Trait } from "@/data/traits";
 
-export default function AnimaFilters({
-  setQuery,
-  aspectSelection,
-  handleAspectSelection,
-  traitSelection,
-  handleTraitSelection,
-}: {
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
-  aspectSelection: string[];
-  handleAspectSelection: (aspect: string) => void;
-  traitSelection: string[];
-  handleTraitSelection: (trait: string) => void;
-}) {
+export default function AnimaFilters() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const toggleFilter = (key: string, value: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    // Get current values as a Set
+    const current = params.get(key)?.split("&").filter(Boolean) ?? [];
+    const currentValues = new Set(current);
+
+    // Toggle value
+    if (currentValues.has(value)) {
+      currentValues.delete(value);
+    } else {
+      currentValues.add(value);
+    }
+
+    // Update or delete the param
+    if (currentValues.size === 0) {
+      params.delete(key);
+    } else {
+      params.set(key, Array.from(currentValues).join("&"));
+    }
+
+    router.push(`?${params.toString()}`);
+  };
+
+  const initialQuery = searchParams.get("query") ?? "";
+  const [query, setQuery] = useState(initialQuery);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      if (query) {
+        params.set("query", query);
+      } else {
+        params.delete("query");
+      }
+
+      router.push(`?${params.toString()}`, { scroll: false });
+    }, 100);
+
+    return () => clearTimeout(handler);
+  }, [query, router, searchParams]);
+
   return (
     <div className={styles.filters}>
       <div className={styles.search}>
         <input
           type="search"
+          value={query}
           placeholder="Search"
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -42,24 +82,23 @@ export default function AnimaFilters({
       </div>
 
       <ul>
-        {aspects?.map((aspect) => (
+        {aspects?.map((aspect: Aspect) => (
           <ToggleButton
             key={aspect}
             value={aspect}
             imgCategory="aspects"
-            selected={aspectSelection}
-            toggleSelection={handleAspectSelection}
+            toggle={toggleFilter}
           />
         ))}
       </ul>
+
       <ul>
-        {traits?.map((trait) => (
+        {traits?.map((trait: Trait) => (
           <ToggleButton
             key={trait}
             value={trait}
             imgCategory="traits"
-            selected={traitSelection}
-            toggleSelection={handleTraitSelection}
+            toggle={toggleFilter}
           />
         ))}
       </ul>
