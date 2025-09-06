@@ -8,4 +8,5 @@ export type Anima = {
   trait: Trait;
   height: number;
   energy: number;
+  description: string;
 };

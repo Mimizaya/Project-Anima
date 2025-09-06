@@ -1,0 +1,50 @@
+.nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 20px;
+  background-color: #262626;
+  color: var(--background);
+}
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+.nav h1 {
+  font-size: 1.5em;
+  font-weight: 900;
+}
+.nav ul {
+  position: relative;
+  top: 2px;
+  display: flex;
+  gap: 20px;
+}
+.nav ul li {
+  position: relative;
+  font-size: 1em;
+  font-weight: 800;
+}
+.active {
+  color: var(--accent);
+}
+.active:after,
+.nav li:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  background: var(--accent);
+  height: 5px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}

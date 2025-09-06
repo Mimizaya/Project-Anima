@@ -18,7 +18,7 @@ export default function AnidexFiltersToggleButton({
         selected.length > 0
           ? selected.includes(value)
             ? ""
-            : "unselected"
+            : `${styles.buttonUnselected}`
           : ""
       }`}
       onClick={() => toggleSelection(value)}

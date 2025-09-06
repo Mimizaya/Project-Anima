@@ -3,7 +3,7 @@
   --foreground: #171717;
   --border: #ddd;
   --element: #f1efe7;
-  --color-faint: #969384;
+  --color-faint: #7a776a;
   --highlight: #36df36;
   --accent: #24c7b1;
 }
@@ -14,7 +14,7 @@
     --foreground: #ededed;
     --element: #242424;
     --border: #333333;
-    --color-faint: #777;
+    --color-faint: #999999;
     --highlight: rgb(92, 235, 49);
   }
 }
@@ -23,6 +23,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scrollbar-width: thin;
 }
 
 html,
@@ -67,9 +68,6 @@ button {
 }
 
 /* COLORS */
-.unselected {
-  filter: grayscale(1);
-}
 .satiation {
   background: #f8a77c;
 }

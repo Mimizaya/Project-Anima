@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
-import styles from "../animaPage.module.css";
+import styles from "../anidex.module.css";
 
 export default async function Page({
   params,
@@ -10,16 +10,11 @@ export default async function Page({
 
   const supabase = await createClient();
   const { data: anima } = await supabase
-    .from("anima")
+    .from("anidex")
     .select()
     .ilike("name", name)
     .single();
 
-  if (!anima)
-    return (
-      <main className={styles.noResults}>
-        <h2>Hmmm, seems like there's nothing here.</h2>
-      </main>
-    );
-  return <main>Anima: {anima.name}</main>;
+  if (!anima) return <h2>Hmmm, seems like there's nothing here.</h2>;
+  return <p>Anima: {anima.name}</p>;
 }

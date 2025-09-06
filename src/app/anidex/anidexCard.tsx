@@ -9,10 +9,12 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
       <p className={styles.number}>#{String(anima.id).padStart(3, "0")}</p>
 
       <div className={styles.animaImageContainer}>
+        {" "}
         <Image
           src={`/anima/${anima.name}.png`}
           alt={`${anima.name} Icon`}
-          fill={true}
+          width={250}
+          height={250}
         />
       </div>
 
@@ -45,6 +47,8 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
           Energy: <span className={styles.teal}>{anima.energy}</span> Joules
         </p>
       </div>
+
+      <p className={styles.description}>{anima.description}</p>
     </div>
   );
 }

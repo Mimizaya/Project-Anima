@@ -1,6 +1,6 @@
 import type { Anima } from "@/types/types";
 
-export function filterAndSortAnima(
+export function searchAnidex(
   anima: Anima[],
   query: string,
   aspectSelection: string[],

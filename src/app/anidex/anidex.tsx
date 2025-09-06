@@ -4,11 +4,12 @@ import { useState, useMemo } from "react";
 import AnidexFilters from "@/anidex/anidexFilters";
 import AnidexCard from "@/anidex/anidexCard";
 import type { Anima } from "@/types/types";
-import { filterAndSortAnima } from "@/utils/searchAnima";
+import { searchAnidex } from "@/utils/searchAnidex";
 import { useMultiSelect } from "@/hooks/useMultiSelect";
 import styles from "./anidex.module.css";
 
 export default function Anidex({ anima }: { anima: Anima[] }) {
+  const [query, setQuery] = useState<string>("");
   const {
     selection: aspectSelection,
     setSelection: setAspectSelection,
@@ -21,10 +22,8 @@ export default function Anidex({ anima }: { anima: Anima[] }) {
     toggleSelection: handleTraitSelection,
   } = useMultiSelect();
 
-  const [query, setQuery] = useState<string>("");
-
   const filteredData = useMemo(() => {
-    return filterAndSortAnima(anima, query, aspectSelection, traitSelection);
+    return searchAnidex(anima, query, aspectSelection, traitSelection);
   }, [anima, query, aspectSelection, traitSelection]);
 
   const clearFilters = () => {
@@ -44,18 +43,18 @@ export default function Anidex({ anima }: { anima: Anima[] }) {
         handleTraitSelection={handleTraitSelection}
       />
       {filteredData.length > 0 ? (
-        <main className={styles.list}>
+        <section className={styles.list}>
           {filteredData.map((anima: Anima) => (
             <AnidexCard key={anima.id} anima={anima} />
           ))}
-        </main>
+        </section>
       ) : (
-        <main className={styles.noResults}>
+        <section className={styles.noResults}>
           <h2>Sorry, no results found.</h2>
           <button type="button" onClick={clearFilters}>
             Clear filters
           </button>
-        </main>
+        </section>
       )}
     </>
   );
