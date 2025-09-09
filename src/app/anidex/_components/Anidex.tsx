@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import AnidexFilters from "@/anidex/_components/AnidexFilters";
-import AnidexCard from "@/anidex/_components/AnidexCard";
+import { useMemo, useState } from "react";
+import { useMultiSelect } from "@/_hooks/useMultiSelect";
 import type { Anima } from "@/_types/types";
 import { searchAnidex } from "@/_utils/searchAnidex";
-import { useMultiSelect } from "@/_hooks/useMultiSelect";
+import AnidexCard from "@/anidex/_components/AnidexCard";
+import AnidexFilters from "@/anidex/_components/AnidexFilters";
 import styles from "@/anidex/_styles/Anidex.module.css";
 
 export default function Anidex({ anima }: { anima: Anima[] }) {

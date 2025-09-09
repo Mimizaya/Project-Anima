@@ -1,6 +1,6 @@
-import ToggleButton from "@/anidex/_components/AnidexFiltersToggleButton";
 import { aspects } from "@/_data/aspects";
 import { traits } from "@/_data/traits";
+import ToggleButton from "@/anidex/_components/AnidexFiltersToggleButton";
 import styles from "@/anidex/_styles/AnidexFilters.module.css";
 
 export default function AnidexFilters({

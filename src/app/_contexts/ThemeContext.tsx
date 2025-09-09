@@ -32,7 +32,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       applyTheme(storedTheme);
     } else {
       const systemSettingLight = window.matchMedia(
-        "(prefers-color-scheme: light)"
+        "(prefers-color-scheme: light)",
       ).matches;
       const fallbackTheme: Theme = systemSettingLight
         ? "light-theme"

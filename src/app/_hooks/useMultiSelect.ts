@@ -5,7 +5,7 @@ export function useMultiSelect<T = string>() {
 
   const toggleSelection = (item: T) => {
     setSelection((prev) =>
-      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item],
     );
   };
 

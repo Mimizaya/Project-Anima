@@ -4,7 +4,7 @@ export function searchAnidex(
   anima: Anima[],
   query: string,
   aspectSelection: string[],
-  traitSelection: string[]
+  traitSelection: string[],
 ): Anima[] {
   const queryLower = query.toLowerCase();
   return anima

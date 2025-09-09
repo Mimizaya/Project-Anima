@@ -1,9 +1,9 @@
 "use client";
 
-import styles from "@/_styles/Navigation.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "@/_components/ToggleTheme";
+import ThemeToggle from "@/_components/ThemeToggle";
+import styles from "@/_styles/Navigation.module.css";
 
 export default function Navigation() {
   const path = usePathname();

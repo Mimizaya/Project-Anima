@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { createClient } from "@/_utils/supabase/server";
+
 //import styles from "../anidex.module.css";
 
 type Props = {
@@ -14,11 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ name: string }>;
-}) {
+export default async function Page({ params }: Props) {
   const { name } = await params;
 
   const supabase = await createClient();
