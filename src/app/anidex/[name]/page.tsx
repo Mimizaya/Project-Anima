@@ -1,5 +1,18 @@
-import { createClient } from "@/utils/supabase/server";
-import styles from "../anidex.module.css";
+import type { Metadata } from "next";
+import { createClient } from "@/_utils/supabase/server";
+//import styles from "../anidex.module.css";
+
+type Props = {
+  params: Promise<{ name: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { name } = await params;
+  const nameCapitalized = name[0].toUpperCase() + name.slice(1).toLowerCase();
+  return {
+    title: nameCapitalized,
+  };
+}
 
 export default async function Page({
   params,
@@ -16,5 +29,9 @@ export default async function Page({
     .single();
 
   if (!anima) return <h2>Hmmm, seems like there's nothing here.</h2>;
-  return <p>Anima: {anima.name}</p>;
+  return (
+    <section>
+      <h2>{anima.name}</h2>
+    </section>
+  );
 }

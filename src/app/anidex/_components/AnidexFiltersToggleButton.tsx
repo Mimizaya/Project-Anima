@@ -1,16 +1,16 @@
 import Image from "next/image";
-import styles from "./anidexFilters.module.css";
+import styles from "@/anidex/_styles/AnidexFiltersToggleButton.module.css";
 
 export default function AnidexFiltersToggleButton({
   value,
-  imgCategory,
+  group,
   selected,
-  toggleSelection,
+  handleSelection,
 }: {
   value: string;
-  imgCategory: string;
+  group: string;
   selected: string[];
-  toggleSelection: (value: string) => void;
+  handleSelection: (value: string) => void;
 }) {
   return (
     <li
@@ -21,11 +21,11 @@ export default function AnidexFiltersToggleButton({
             : `${styles.buttonUnselected}`
           : ""
       }`}
-      onClick={() => toggleSelection(value)}
-      onKeyDown={() => toggleSelection(value)}
+      onClick={() => handleSelection(value)}
+      onKeyDown={() => handleSelection(value)}
     >
       <Image
-        src={`/icons/${imgCategory}/${value}.png`}
+        src={`/icons/${group}/${value}.png`}
         alt={`${value} Icon`}
         height={24}
         width={24}

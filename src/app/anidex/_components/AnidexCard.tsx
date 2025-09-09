@@ -1,6 +1,7 @@
-import styles from "./anidexCard.module.css";
 import Image from "next/image";
-import type { Anima } from "@/types/types";
+import Link from "next/link";
+import type { Anima } from "@/_types/types";
+import styles from "@/anidex/_styles/AnidexCard.module.css";
 
 export default function AnidexCard({ anima }: { anima: Anima }) {
   return (
@@ -15,6 +16,7 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
           alt={`${anima.name} Icon`}
           width={250}
           height={250}
+          priority={true}
         />
       </div>
 
@@ -49,6 +51,25 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
       </div>
 
       <p className={styles.description}>{anima.description}</p>
+
+      <button type="button" className={styles.viewDetailsButton}>
+        <Link href={`/anidex/${anima.name.toLowerCase()}`}>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <title>View Details</title>
+            <path d="M7 17L17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </Link>
+      </button>
     </div>
   );
 }

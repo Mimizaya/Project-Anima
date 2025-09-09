@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { createClient } from "@/utils/supabase/server";
-import Anidex from "@/anidex/anidex";
+import { createClient } from "@/_utils/supabase/server";
+import Anidex from "@/anidex/_components/Anidex";
 
 export const metadata: Metadata = {
   title: "Anidex",

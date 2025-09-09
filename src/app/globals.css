@@ -1,29 +1,26 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --border: #ddd;
+  --foreground: #242424;
   --element: #f1efe7;
+  --border: #ddd;
   --color-faint: #7a776a;
   --highlight: #36df36;
   --accent: #24c7b1;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1c1c1c;
-    --foreground: #ededed;
-    --element: #242424;
-    --border: #333333;
-    --color-faint: #999999;
-    --highlight: rgb(92, 235, 49);
-  }
+.dark-theme {
+  --background: #1c1c1c;
+  --foreground: #ededed;
+  --element: #252525;
+  --border: #161616;
+  --color-faint: #b1afaf;
+  --highlight: #5ceb31;
+  --accent: #24c7b1;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  scrollbar-width: thin;
 }
 
 html,
@@ -37,14 +34,22 @@ body {
   font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
+.light-theme body {
+  background-image: url("/background.jpg");
+}
+.dark-theme body {
+  background-image: url("/background-dark.jpg");
+}
+.dark-theme header#main {
+  background: var(--background);
+}
 main {
-  margin: 20px;
+  margin: 70px 20px 20px 20px;
 }
 
 ul {
@@ -56,15 +61,6 @@ a {
 }
 button {
   font-family: inherit;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    background-image: none;
-  }
 }
 
 /* COLORS */

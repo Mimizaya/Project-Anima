@@ -1,4 +1,4 @@
-import type { Anima } from "@/types/types";
+import type { Anima } from "@/_types/types";
 
 export function searchAnidex(
   anima: Anima[],

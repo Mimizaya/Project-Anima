@@ -1,5 +1,5 @@
-import type { Aspect } from "@/data/aspects";
-import type { Trait } from "@/data/traits";
+import type { Aspect } from "@/_data/aspects";
+import type { Trait } from "@/_data/traits";
 
 export type Anima = {
   id: number;

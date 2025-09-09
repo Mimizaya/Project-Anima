@@ -1,7 +1,7 @@
-import ToggleButton from "@/anidex/anidexFiltersToggleButton";
-import { aspects } from "@/data/aspects";
-import { traits } from "@/data/traits";
-import styles from "./anidexFilters.module.css";
+import ToggleButton from "@/anidex/_components/AnidexFiltersToggleButton";
+import { aspects } from "@/_data/aspects";
+import { traits } from "@/_data/traits";
+import styles from "@/anidex/_styles/AnidexFilters.module.css";
 
 export default function AnidexFilters({
   query,
@@ -49,9 +49,9 @@ export default function AnidexFilters({
           <ToggleButton
             key={aspect}
             value={aspect}
-            imgCategory="aspects"
+            group="aspects"
             selected={aspectSelection}
-            toggleSelection={handleAspectSelection}
+            handleSelection={handleAspectSelection}
           />
         ))}
       </ul>
@@ -60,9 +60,9 @@ export default function AnidexFilters({
           <ToggleButton
             key={trait}
             value={trait}
-            imgCategory="traits"
+            group="traits"
             selected={traitSelection}
-            toggleSelection={handleTraitSelection}
+            handleSelection={handleTraitSelection}
           />
         ))}
       </ul>

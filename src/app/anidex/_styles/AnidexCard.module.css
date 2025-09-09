@@ -39,6 +39,7 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  font-size: 1em;
   font-weight: 900;
   letter-spacing: 0.2px;
   color: #fff;
@@ -65,4 +66,20 @@
   font-weight: 700;
   padding: 5px;
   color: var(--color-faint);
+}
+.viewDetailsButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  border: none;
+  padding: 3px;
+}
+.viewDetailsButton svg {
+  height: 100%;
+  width: 100%;
+  color: #fff;
 }
