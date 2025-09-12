@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getCachedAnimaData } from "@/_utils/supabase/getAnimaData";
 import { createClient } from "@/_utils/supabase/server";
-
-//import styles from "../anidex.module.css";
+import AnimaPage from "@/anidex/[name]/_components/AnimaPage";
 
 type Props = {
   params: Promise<{ name: string }>;
@@ -17,18 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { name } = await params;
-
   const supabase = await createClient();
-  const { data: anima } = await supabase
-    .from("anidex")
-    .select()
-    .ilike("name", name)
-    .single();
+  const anima = await getCachedAnimaData(supabase, name);
 
-  if (!anima) return <h2>Hmmm, seems like there's nothing here.</h2>;
-  return (
-    <section>
-      <h2>{anima.name}</h2>
-    </section>
-  );
+  if (!anima) notFound();
+  return <AnimaPage anima={anima} />;
 }

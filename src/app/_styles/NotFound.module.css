@@ -1,0 +1,21 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 90px);
+}
+
+.notFound h2,
+.notFound h3 {
+  color: var(--color-faint);
+}
+.notFound h2 {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+.notFound h3 {
+  font-size: 1.8em;
+  font-weight: 800;
+}

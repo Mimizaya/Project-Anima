@@ -8,8 +8,9 @@ import AnidexCard from "@/anidex/_components/AnidexCard";
 import AnidexFilters from "@/anidex/_components/AnidexFilters";
 import styles from "@/anidex/_styles/Anidex.module.css";
 
-export default function Anidex({ anima }: { anima: Anima[] }) {
+export default function Anidex({ data }: { data: Anima[] }) {
   const [query, setQuery] = useState<string>("");
+
   const {
     selection: aspectSelection,
     setSelection: setAspectSelection,
@@ -23,13 +24,14 @@ export default function Anidex({ anima }: { anima: Anima[] }) {
   } = useMultiSelect();
 
   const filteredData = useMemo(() => {
-    return searchAnidex(anima, query, aspectSelection, traitSelection);
-  }, [anima, query, aspectSelection, traitSelection]);
+    return searchAnidex(data, query, aspectSelection, traitSelection);
+  }, [data, query, aspectSelection, traitSelection]);
 
   const clearFilters = () => {
     setQuery("");
     setAspectSelection([]);
     setTraitSelection([]);
+    // Other future states here
   };
 
   return (

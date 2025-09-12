@@ -9,6 +9,25 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
       <h2>{anima.name}</h2>
       <p className={styles.number}>#{String(anima.id).padStart(3, "0")}</p>
 
+      <button type="button" className={styles.viewDetailsButton}>
+        <Link href={`/anidex/${anima.name.toLowerCase()}`}>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <title>View Details</title>
+            <path d="M7 17L17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </Link>
+      </button>
+
       <div className={styles.animaImageContainer}>
         {" "}
         <Image
@@ -30,6 +49,7 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
           />
           {anima.aspect}
         </p>
+
         <p className={`${styles.trait} ${anima.trait.toLowerCase()}`}>
           <Image
             src={`/icons/traits/${anima.trait}.png`}
@@ -49,27 +69,6 @@ export default function AnidexCard({ anima }: { anima: Anima }) {
           Energy: <span className={styles.teal}>{anima.energy}</span> Joules
         </p>
       </div>
-
-      <p className={styles.description}>{anima.description}</p>
-
-      <button type="button" className={styles.viewDetailsButton}>
-        <Link href={`/anidex/${anima.name.toLowerCase()}`}>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <title>View Details</title>
-            <path d="M7 17L17 7" />
-            <path d="M7 7h10v10" />
-          </svg>
-        </Link>
-      </button>
     </div>
   );
 }

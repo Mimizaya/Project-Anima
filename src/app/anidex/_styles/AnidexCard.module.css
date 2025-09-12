@@ -2,9 +2,9 @@
   position: relative;
   width: 356px;
   padding: 15px;
-  border-radius: 10px;
-  border: 2px solid var(--border);
   background-color: var(--element);
+  border: 2px solid var(--border);
+  border-radius: 10px;
 }
 .card h2 {
   font-size: 1.8em;
@@ -15,34 +15,34 @@
   color: var(--color-faint);
 }
 .animaImageContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .types {
   display: flex;
   gap: 10px;
 }
 .types:last-of-type {
+  padding-top: 10px;
+  margin-top: 15px;
   border-top: 2px solid var(--border);
   border-radius: 2px;
-  margin-top: 15px;
-  padding-top: 10px;
 }
 .aspect,
 .trait {
-  height: 34px;
-  border-radius: 15px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
   font-size: 1em;
   font-weight: 900;
-  letter-spacing: 0.2px;
   color: #fff;
+  letter-spacing: 0.2px;
+  border-radius: 15px;
 }
 .aspect img,
 .trait img {
@@ -53,33 +53,33 @@
 .energy {
   width: 50%;
   padding: 5px;
-  font-weight: 700;
   font-size: 0.95em;
+  font-weight: 700;
 }
 .teal {
-  color: var(--accent);
   font-weight: 900;
+  color: var(--accent);
 }
 .description {
+  padding: 5px;
   margin-top: 5px;
   font-size: 0.95em;
   font-weight: 700;
-  padding: 5px;
   color: var(--color-faint);
 }
 .viewDetailsButton {
   position: absolute;
   top: 15px;
   right: 15px;
-  height: 30px;
   width: 30px;
-  border-radius: 50%;
+  height: 30px;
+  padding: 3px;
   background-color: var(--accent);
   border: none;
-  padding: 3px;
+  border-radius: 50%;
 }
 .viewDetailsButton svg {
-  height: 100%;
   width: 100%;
+  height: 100%;
   color: #fff;
 }

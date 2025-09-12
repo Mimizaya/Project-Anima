@@ -22,6 +22,10 @@
   padding: 0;
   margin: 0;
 }
+::selection {
+  color: #fff;
+  background-color: var(--accent);
+}
 
 html,
 body {
@@ -29,15 +33,15 @@ body {
   overflow-x: hidden;
 }
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--foreground);
+  background: var(--background);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 .light-theme body {
   background-image: url("/background.jpg");
@@ -49,7 +53,9 @@ body {
   background: var(--background);
 }
 main {
-  margin: 70px 20px 20px 20px;
+  min-height: calc(100vh - 50px);
+  padding: 20px;
+  margin-top: 50px;
 }
 
 ul {
@@ -125,8 +131,8 @@ button {
   background: #d29eb6;
 }
 .cherubim {
-  background: #ffffff;
   color: #bba479 !important;
+  background: #ffffff;
 }
 .gladiator {
   background: #ba9f7c;

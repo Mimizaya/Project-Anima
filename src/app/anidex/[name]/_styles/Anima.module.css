@@ -1,0 +1,59 @@
+.section {
+  display: grid;
+  grid-template-columns: 350px 450px;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+}
+.sectionError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+}
+div.info {
+  grid-column-start: 2;
+}
+img.mainImage {
+  position: relative;
+  top: 0;
+  right: 60px;
+}
+h2.name {
+  display: inline;
+  margin-right: 20px;
+  font-size: 2.4em;
+  font-weight: 900;
+}
+span.number {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--color-faint);
+}
+p.description {
+  font-weight: 700;
+  color: var(--color-faint);
+}
+.aspecttrait {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+div.aspect,
+div.trait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 34px;
+  font-size: 1em;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.2px;
+  border-radius: 15px;
+}
+div.aspect img,
+div.trait img {
+  margin-right: 5px;
+}

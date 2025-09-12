@@ -2,6 +2,7 @@ import { aspects } from "@/_data/aspects";
 import { traits } from "@/_data/traits";
 import ToggleButton from "@/anidex/_components/AnidexFiltersToggleButton";
 import styles from "@/anidex/_styles/AnidexFilters.module.css";
+import { revalidataAnimaData } from "@/revalidateAnimaData";
 
 export default function AnidexFilters({
   query,
@@ -19,7 +20,7 @@ export default function AnidexFilters({
   handleTraitSelection: (trait: string) => void;
 }) {
   return (
-    <header className={styles.filters}>
+    <section className={styles.filters}>
       <div className={styles.search}>
         <input
           type="search"
@@ -66,6 +67,9 @@ export default function AnidexFilters({
           />
         ))}
       </ul>
-    </header>
+      <button type="button" onClick={revalidataAnimaData}>
+        DEV: Revalidate data
+      </button>
+    </section>
   );
 }

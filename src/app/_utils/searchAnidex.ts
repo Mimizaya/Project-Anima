@@ -8,16 +8,16 @@ export function searchAnidex(
 ): Anima[] {
   const queryLower = query.toLowerCase();
   return anima
-    .filter((a: Anima) => {
+    .filter((anima: Anima) => {
       const matchesQuery =
-        a.name?.toLowerCase().includes(queryLower) ||
-        a.aspect?.toLowerCase().includes(queryLower) ||
-        a.trait?.toLowerCase().includes(queryLower);
+        anima.name?.toLowerCase().includes(queryLower) ||
+        anima.aspect?.toLowerCase().includes(queryLower) ||
+        anima.trait?.toLowerCase().includes(queryLower);
 
       const matchesAspect =
-        aspectSelection.length === 0 || aspectSelection.includes(a.aspect);
+        aspectSelection.length === 0 || aspectSelection.includes(anima.aspect);
       const matchesTrait =
-        traitSelection.length === 0 || traitSelection.includes(a.trait);
+        traitSelection.length === 0 || traitSelection.includes(anima.trait);
 
       return matchesQuery && matchesAspect && matchesTrait;
     })
